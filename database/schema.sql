@@ -23,6 +23,9 @@ CREATE TABLE "recipes" (
 	"title" TEXT NOT NULL,
 	"imageUrl" TEXT NOT NULL,
 	"description" TEXT NOT NULL,
+  "ingredients" TEXT[]NOT NULL,
+  "instructions" TEXT[] NOT NULL,
+  "notes" TEXT NOT NULL,
 	"userId" integer NOT NULL,
 	"createdAt" timestamptz(6) NOT NULL default now(),
 	CONSTRAINT "recipes_pk" PRIMARY KEY ("recipeId")

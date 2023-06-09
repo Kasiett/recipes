@@ -22,8 +22,17 @@ app.use(express.static(reactStaticDir));
 app.use(express.static(uploadsStaticDir));
 app.use(express.json());
 
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello, World!' });
+app.get('/api/recipes', async (req, res) => {
+  try {
+    const sql = `
+  select *
+    from "recipes"`;
+    const result = await db.query(sql);
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'an unexpected error occurred' });
+  }
 });
 
 /**
