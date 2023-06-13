@@ -21,6 +21,7 @@ CREATE TABLE "users" (
 CREATE TABLE "recipes" (
 	"recipeId" serial NOT NULL,
 	"title" TEXT NOT NULL,
+  "type" TEXT NOT NULL,
 	"imageUrl" TEXT NOT NULL,
 	"description" TEXT NOT NULL,
   "ingredients" TEXT[]NOT NULL,

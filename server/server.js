@@ -35,6 +35,57 @@ app.get('/api/recipes', async (req, res) => {
   }
 });
 
+app.post('/api/recipes', async (req, res) => {
+  // http -v post localhost:8080/api/recipes title='testDish1' type='salad' imageUrl='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' notes='Buon appetite!' userId='2'
+  try {
+    const {
+      title,
+      type,
+      imageUrl,
+      description,
+      ingredients,
+      instructions,
+      notes,
+      userId,
+    } = req.body;
+    if (
+      !title ||
+      !type ||
+      !imageUrl ||
+      !description ||
+      !ingredients ||
+      !instructions ||
+      !notes ||
+      !userId
+    ) {
+      res.status(400).json({ error: 'all fields are required!' });
+      return;
+    }
+    const sql = `
+    insert into "recipes" ("title", "type", "imageUrl", "description", "ingredients", "instructions", "notes", "userId")
+           values ($1, $2, $3, $4, $5, $6, $7, $8)
+           returning *
+    `;
+
+    const params = [
+      title,
+      type,
+      imageUrl,
+      description,
+      ingredients,
+      instructions,
+      notes,
+      userId,
+    ];
+    const result = await db.query(sql, params);
+    const [recipes] = result.rows;
+    res.status(201).json(recipes);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'an unexpected error occurred' });
+  }
+});
+
 /**
  * Serves React's index.html if no api route matches.
  *

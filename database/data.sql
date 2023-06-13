@@ -16,12 +16,16 @@
 
 
 INSERT INTO "recipes"
-  ("title", "imageUrl", "description", "ingredients", "instructions", "notes", "userId")
+  ("title", "type", "imageUrl", "description", "ingredients", "instructions", "notes", "userId")
 VALUES
-  ('BRAIN SAVER SALAD', './public/images/brain-saver-salad.png', 'Italian Bolognese sauce is a classic and flavorful',
-   ARRAY['1 pound (450g) ground beef', '1 onion', '2 carrots', '2 celery stackls', '4 cloves of garlic'],
-   ARRAY['1. Heat a large deep skillet', '2. Add an olive oil', 'Return the cooked meat to the skillet', '3. and so on...'],
-    'Enjoy your homemade Italian Bolognese sauce with pasta, and buon appetito!',
+  ('STRAWBERRY BANANA SALAD (GLUTEN-FREE, DAIRY-FREE, & FAT-FREE)', 'salad', './public/images/strawberry-banana-salad.png', 'This fruit-focused salad is fresh, bright, and packed with flavor thanks to the herbs, fruit, and two different dressing options. Each dressing has its own unique taste and appeal, so try them both and pick your favorite, or alternate each time you make this pretty salad. This recipe comes from the Revised and Expanded Edition of Medical Medium.
+Strawberries have high levels of phenols, which act as an anti-inflammatory and are loaded with Vitamin C, which helps boost the immune system by warding off colds, flus, and respiratory infections.
+Bananas are an excellent “brain food” great for heavy thinkers and are known to help build strong muscles as well as strengthen the nervous system.
+Leafy greens create true alkalinity in the body systems, especially the lymphatic, which can become the most acidic system due to a barrage of chemicals, acids, plastics, pesticides, heavy metals, and pathogens constantly entering the lymphatic passages.
+Strawberry Banana Salad',
+   ARRAY['4 cups chopped strawberries', '4-6 bananas, roughly chopped (about 4-6 cups)', '4 cups leafy greens (such as spinach and/or butter leaf lettuce)', '1/4 cup finely chopped basil or sage (optional)', '1/2 cup orange juice', '2 tsp raw honey'],
+   ARRAY['Place the strawberries, bananas, leafy greens, and basil or sage (if using) in a medium-sized bowl. Gently toss until evenly combined.', 'For dressing whisk together the orange juice and raw honey in a small bowl. Add to the salad and gently toss again.', 'Return the cooked meat to the skillet', '3. and so on...'],
+    'Enjoy your homemade Strawberry banana salad buon appetito!',
    '1');
 
 
