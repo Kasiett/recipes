@@ -86,6 +86,76 @@ app.post('/api/recipes', async (req, res) => {
   }
 });
 
+app.patch('/api/recipes/:recipeId', async (req, res) => {
+  // http -v patch localhost:8080/api/recipes/2 title='DishMish' type='salad' imageUrl='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' notes='Buon appetite!' userId='2'
+
+  try {
+    const recipeId = Number(req.params.recipeId);
+    if (!Number.isInteger(recipeId) || recipeId < 1) {
+      res.status(400).json({ error: 'resipeId must be a positive integer' });
+      return;
+    }
+    const {
+      title,
+      type,
+      imageUrl,
+      description,
+      ingredients,
+      instructions,
+      notes,
+    } = req.body;
+    if (
+      !title ||
+      !type ||
+      !imageUrl ||
+      !description ||
+      !ingredients ||
+      !instructions ||
+      !notes
+    ) {
+      res
+        .status(400)
+        .json({ error: 'at least one filled has to be provided!' });
+      return;
+    }
+    const sql = `
+  UPDATE "recipes"
+  SET "title" = $1,
+      "type" = $2,
+      "imageUrl" = $3,
+      "description" = $4,
+      "ingredients" = $5,
+      "instructions" = $6,
+      "notes" = $7
+  WHERE "recipeId" = $8
+  RETURNING *
+`;
+
+    const params = [
+      title,
+      type,
+      imageUrl,
+      description,
+      ingredients,
+      instructions,
+      notes,
+      recipeId,
+    ];
+    const result = await db.query(sql, params);
+    const [recipe] = result.rows;
+    if (!recipe) {
+      res
+        .status(404)
+        .json({ error: `cannot find todo with todoId ${recipeId}` });
+      return;
+    }
+    res.json(recipe);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'an unexpected error occurred' });
+  }
+});
+
 /**
  * Serves React's index.html if no api route matches.
  *
