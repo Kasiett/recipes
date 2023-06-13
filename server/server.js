@@ -156,6 +156,32 @@ app.patch('/api/recipes/:recipeId', async (req, res) => {
   }
 });
 
+app.delete('/api/recipes/:recipeId', async (req, res, next) => {
+  try {
+    const recipeId = Number(req.params.recipeId);
+    if (!Number.isInteger(recipeId) || recipeId < 1) {
+      res.status(400).json({ error: 'resipeId must be a positive integer' });
+    }
+    const sql = `
+    delete from "recipes"
+    where "recipeId" = $1
+    returning *`;
+
+    const params = [recipeId];
+    const result = await db.query(sql, params);
+    const [deletedRecipe] = result.rows;
+    if (!deletedRecipe) {
+      res
+        .status(404)
+        .json({ error: `cannot find recipe with recipeId ${recipeId}` });
+    } else {
+      res.sendStatus(204);
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
 /**
  * Serves React's index.html if no api route matches.
  *

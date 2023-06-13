@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const [serverData, setServerData] = useState('');
+  const [serverData, setServerData] = useState(null);
 
   useEffect(() => {
     async function readServerData() {
-      const resp = await fetch('/api/hello');
+      const resp = await fetch('/api/recipes');
       const data = await resp.json();
 
       console.log('Data from server:', data);
@@ -18,14 +17,7 @@ function App() {
     readServerData();
   }, []);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>{serverData}</h1>
-      </header>
-    </div>
-  );
+  return <div className="App">hello Benny!</div>;
 }
 
 export default App;
