@@ -73,17 +73,17 @@ a {
 }
 
 .header {
-  /* border-bottom: 1px solid rgba(148, 148, 148, 1); */
-
-  /* box-shadow: 3px 2px 14px 1px rgba(148, 148, 148, 1); */
   box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.15);
   margin-top: 0;
-  margin-bottom: 100px;
   padding-bottom: 5px;
 }
 
+/* log-out box -display none by default! */
+
+/* .log-in:hover {
+  display:block;
+} */
 .log-out-box {
-  /* border: 1px solid black; */
   box-shadow: 2px 1px 12px 1px rgba(148, 148, 148, 1);
   width: 150px;
   padding: 20px;
@@ -92,10 +92,6 @@ a {
   top: 72px;
   display: none;
 }
-
-/* .log-in:hover {
-  display:block;
-} */
 
 .list-icons,
 .rating {
@@ -112,11 +108,13 @@ a {
 
 .list {
   width: 320px;
+  padding: 50px;
 }
 
 .like-count {
   text-align: right;
   margin-top: 0;
+  margin-bottom: 0;
   font-size: small;
   font-style: italic;
 }
@@ -145,33 +143,42 @@ a {
 
 .resipes-list {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 5px;
-  width: 25%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 8px;
-  border-radius: 10px;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active,
-.collapsible:hover {
-  background-color: #ccc;
-}
-
-/* Style the collapsible content. Note: hidden by default */
-.instructions {
-  padding: 0 18px;
-  display: none;
+.sub-description {
+  width: 280px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   overflow: hidden;
-  background-color: #f1f1f1;
+}
+
+.show-more-wrapper {
+  display: flex;
+}
+
+.more {
+  color: rgb(114, 114, 114);
+  margin-left: 5px;
+}
+
+/* Recipe Page styling below */
+
+.recipe-page-img {
+  height: 450px;
+}
+
+.recipe-page-wrapper {
+  display: flex;
+  margin: 0 130px 50px;
+}
+
+.column-right {
+  margin-top: 100px;
+  margin-left: 40px;
+}
+
+.instructions {
+  list-style: none;
+  margin: 10px;
 }

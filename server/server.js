@@ -35,6 +35,32 @@ app.get('/api/recipes', async (req, res) => {
   }
 });
 
+app.get('/api/recipes/:recipeId', async (req, res, next) => {
+  try {
+    const recipeId = Number(req.params.recipeId);
+    if (!Number.isInteger(recipeId) || recipeId < 1) {
+      res.status(400).json({ error: 'grade must be a positive integer' });
+    }
+    const sql = `
+      select *
+        from "recipes"
+      where "recipeId" = $1
+    `;
+    const params = [recipeId];
+    const result = await db.query(sql, params);
+    const [recipe] = result.rows;
+    if (!recipe) {
+      res
+        .status(404)
+        .json({ error: `cannot find recipe with recipeId ${recipeId}` });
+    } else {
+      res.json(recipe);
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
 app.post('/api/recipes', async (req, res) => {
   // http -v post localhost:8080/api/recipes title='testDish1' type='salad' imageUrl='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' notes='Buon appetite!' userId='2'
   try {

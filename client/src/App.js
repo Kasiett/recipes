@@ -1,28 +1,20 @@
-import { useEffect, useState } from 'react';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header.jsx';
-import ResipesList from './components/RecipesList';
+import RecipesList from './components/RecipesList';
+import RecipePage from './pages/RecipePage';
+import NotFound from './pages/NotFound';
 
 function App() {
-  const [recipes, setRecipes] = useState(null);
-
-  useEffect(() => {
-    async function readRecipes() {
-      const resp = await fetch('/api/recipes');
-      const data = await resp.json();
-
-      console.log('Data from server:', data);
-
-      setRecipes(data);
-    }
-
-    readRecipes();
-  }, []);
-
   return (
     <div className="App">
-      <Header />
-      <ResipesList recipes={recipes} />
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route index element={<RecipesList />} />
+          <Route path="/:recipeId" element={<RecipePage />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

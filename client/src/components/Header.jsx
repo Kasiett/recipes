@@ -1,12 +1,15 @@
 import { BiSearchAlt } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
+import { Outlet, Link } from 'react-router-dom';
 
 export default function Header() {
   return (
     <>
       <div className="header">
         <nav>
-          <h1 className="upper-logo">PlantPower</h1>
+          <Link to="/">
+            <h1 className="upper-logo">PlantPower</h1>
+          </Link>
 
           <ul className="nav-bar">
             <BiSearchAlt className="li-nav-bar icon-search" />
@@ -40,6 +43,7 @@ export default function Header() {
         </ul>
       </div>
       <div className="log-out-box"> Log out</div>
+      <Outlet />
     </>
   );
 }
