@@ -42,13 +42,12 @@ export default function RecipePage() {
     notes,
     userId,
     serves,
+    facts,
   } = recipe;
 
   return (
     <div className="recipe-page-wrapper">
       <div className="column-left">
-        <h2>{title}</h2>
-        <h4 className="subtitle">{subtitle}</h4>
         <img className="recipe-page-img" src={imageUrl} alt="meal" />
 
         <div className="list-icons">
@@ -67,15 +66,27 @@ export default function RecipePage() {
           </div>
         </div>
         <p className="like-count">144 people liked this recipe</p>
-      </div>
-      <div className="column-right">
-        <ul>
+        <ul className="recipe-page-ul">
           <h3>Ingredients:</h3>
           {ingredients.map((ingredient, index) => {
             return <li key={ingredient + index}>{ingredient}</li>;
           })}
         </ul>
-        <ul>
+        <p>
+          <em>Serves: {serves}</em>
+        </p>
+      </div>
+      <div className="column-right">
+        <h2>{title}</h2>
+        <h4 className="subtitle">{subtitle}</h4>
+        <p>{description}</p>
+        {facts && (
+          <div className="facts">
+            <h4>Facts:</h4>
+            <p>{facts}</p>
+          </div>
+        )}
+        <ul className="recipe-page-ul">
           <h3>Directions</h3>
           {instructions.map((instruction, index) => {
             return (
@@ -88,11 +99,6 @@ export default function RecipePage() {
             );
           })}
         </ul>
-        <p>
-          <em>Serves: {serves}</em>
-        </p>
-        <h4>Facts:</h4>
-        <p>{description}</p>
       </div>
     </div>
   );

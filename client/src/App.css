@@ -162,6 +162,10 @@ a {
   margin-left: 5px;
 }
 
+.more:hover {
+  color: rgb(87, 87, 87);
+}
+
 /* Recipe Page styling below */
 
 .recipe-page-img {
@@ -174,11 +178,87 @@ a {
 }
 
 .column-right {
-  margin-top: 100px;
+  margin-top: 50px;
   margin-left: 40px;
+}
+
+.column-left {
+  margin-top: 50px;
 }
 
 .instructions {
   list-style: none;
   margin: 10px;
+}
+
+.recipe-page-ul {
+  margin: 0;
+  padding: 0;
+}
+
+.recipe-page-ul input {
+  margin-right: 10px;
+}
+
+form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  width: 80%;
+}
+
+label {
+  display: block;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-one {
+  width: 300px;
+  padding: 10px 20px;
+  margin: 15px;
+  background-color: rgb(240, 240, 240);
+  border: 0.7px solid;
+}
+
+.input-select {
+  background-color: rgb(240, 240, 240);
+  width: 340px;
+  padding: 10px 20px;
+  margin: 15px;
+}
+
+.form-instructions,
+.form-ingredients {
+  background-color: rgb(240, 240, 240);
+  width: 200px;
+  padding: 10px 20px;
+  margin: 15px;
+  border: 0.7px solid;
+}
+
+.form-add-btn {
+  width: 80px;
+  padding: 10px 20px;
+  border: 0.7px solid;
+  background-color: #447558;
+  color: white;
+}
+
+.form-description {
+  width: 330px;
+  margin: 15px;
+  border: 0.7px solid;
+  background-color: rgb(240, 240, 240);
+}
+
+.upload-file-wrapper {
+  border: 0.7px solid;
+  width: 305px;
+  padding: 10px 20px;
 }

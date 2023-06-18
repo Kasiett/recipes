@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import strawberrySalad from './images/strawberry-banana-salad.png';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { FaRegComment } from 'react-icons/fa';
