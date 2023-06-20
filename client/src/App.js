@@ -7,13 +7,16 @@ import NotFound from './pages/NotFound';
 import AddRecipe from './pages/AddRecipe';
 import AboutUs from './pages/AboutUs';
 import Footer from './components/Footer';
+import { useState } from 'react';
 
 function App() {
+  const [type, setType] = useState('');
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Header />}>
-          <Route index element={<RecipesList />} />
+        <Route path="/" element={<Header setType={setType} />}>
+          <Route index element={<RecipesList type={type} />} />
           <Route path="/:recipeId" element={<RecipePage />} />
           <Route path="/add-recipe" element={<AddRecipe />} />
           <Route path="/about-us" element={<AboutUs />} />

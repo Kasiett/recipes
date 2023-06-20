@@ -2,12 +2,12 @@ import { BiSearchAlt } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
 import { Outlet, Link } from 'react-router-dom';
 
-export default function Header() {
+export default function Header({ setType }) {
   return (
     <>
       <div className="header">
         <nav>
-          <Link to="/">
+          <Link to="/" onClick={() => setType('')}>
             <h1 className="upper-logo">PlantPower</h1>
           </Link>
 
@@ -23,22 +23,30 @@ export default function Header() {
               <a href="#">Popular</a>
             </li>
             <li className="li-nav-bar border-left">
-              <a href="#">About Us</a>
+              <Link to="/add-recipe">Add Recipe</Link>
             </li>
           </ul>
         </nav>
         <ul className="sortby">
           <li>
-            <a href="#">Salads</a>
+            <a href="#" onClick={() => setType('salads')}>
+              Salads
+            </a>
           </li>
           <li>
-            <a href="#">Entree</a>
+            <a href="#" onClick={() => setType('entrees')}>
+              Entrees
+            </a>
           </li>
           <li>
-            <a href="#">Smoothies</a>
+            <a href="#" onClick={() => setType('smoothies')}>
+              Smoothies
+            </a>
           </li>
           <li>
-            <a href="#">Drinks</a>
+            <a href="#" onClick={() => setType('drinks')}>
+              Drinks
+            </a>
           </li>
         </ul>
       </div>

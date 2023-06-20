@@ -337,6 +337,7 @@ label {
 
 .footer-right {
   margin-left: 1000px;
+  display: flex;
 }
 
 .footer-bottom,

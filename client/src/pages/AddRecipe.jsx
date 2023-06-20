@@ -1,4 +1,25 @@
 export default function AddRecipe() {
+  //handleSubmit function
+  //   async function handleSubmit(event) {
+  //   event.preventDefault();
+  //   try {
+  //     const formData = new FormData(event.target);
+  //     console.log('formData -> ', formData)
+  //     const res = await fetch('/api/uploads', {
+  //       method: 'POST',
+  //       body: formData,
+  //     });
+  //     if (!res.ok) {
+  //       throw new Error(`Error ${res.status}`);
+  //     }
+  //     const data = await res.json();
+
+  //     console.log('data::', data);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // }
+  // on form => onSubmit={handleSubmit}
   return (
     <>
       <h2 className="center-title"> Add a recipe:</h2>
@@ -25,10 +46,10 @@ export default function AddRecipe() {
 
             <select required className="input-select" id="recipe-type">
               <option value="type">Select type</option>
-              <option value="salad">Salad</option>
-              <option value="entree">Entree</option>
-              <option value="smoothie">Smoothie</option>
-              <option value="drink">Drink</option>
+              <option value="salad">Salads</option>
+              <option value="entree">Entrees</option>
+              <option value="smoothie">Smoothies</option>
+              <option value="drink">Drinks</option>
             </select>
 
             <label>

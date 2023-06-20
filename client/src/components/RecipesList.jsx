@@ -4,8 +4,9 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { FaRegComment } from 'react-icons/fa';
 import { HiOutlineSave } from 'react-icons/hi';
 import RecipeItem from './RecipeItem';
+import { useParams } from 'react-router-dom';
 
-export default function RecipesList() {
+export default function RecipesList({ type }) {
   const [recipes, setRecipes] = useState(null);
 
   useEffect(() => {
@@ -22,11 +23,18 @@ export default function RecipesList() {
   }, []);
 
   const recipe = recipes && recipes[0];
-  console.log(JSON.stringify(recipe));
+
+  let filterRecipe = () => {
+    if (type) {
+      return recipes.filter((item) => item.type === type);
+    }
+    return recipes;
+  };
+
   return (
     <>
       <ul className="resipes-list ">
-        {recipes?.map((recipe) => (
+        {filterRecipe()?.map((recipe) => (
           <RecipeItem key={recipe?.recipeId} recipe={recipe} />
         ))}
       </ul>
