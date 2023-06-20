@@ -28,6 +28,7 @@ CREATE TABLE "recipes" (
   "ingredients" TEXT[]NOT NULL,
   "instructions" TEXT[] NOT NULL,
   "serves" TEXT NOT NULL,
+  "facts" TEXT NOT NULL,
   "notes" TEXT NOT NULL,
 	"userId" integer NOT NULL,
 	"createdAt" timestamptz(6) NOT NULL default now(),

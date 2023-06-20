@@ -55,6 +55,11 @@ a {
 
 .icon-search {
   margin-right: 0;
+  transition: 0.3s;
+}
+
+.icon-search:hover {
+  font-size: 26px;
 }
 
 .icon-user {
@@ -203,9 +208,9 @@ a {
 form {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
   flex-direction: row;
   width: 80%;
+  margin-bottom: 50px;
 }
 
 label {
@@ -216,6 +221,10 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.col-right {
+  top: 20px;
 }
 
 .input-one {
@@ -261,4 +270,108 @@ label {
   border: 0.7px solid;
   width: 305px;
   padding: 10px 20px;
+}
+
+.form-upload {
+  display: block;
+  margin: 15px;
+}
+
+.input-upload-wrapper {
+  display: block;
+  border: 0.7px solid;
+  width: 300px;
+  padding: 10px 20px;
+  background-color: rgb(240, 240, 240);
+}
+
+.input-uload {
+  border: transparent;
+}
+
+.ul-wrapper {
+  display: flex;
+}
+
+.center-title,
+.submit-button {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button {
+  padding: 10px 150px;
+  background-color: #006546;
+  color: white;
+  border: 0.7px solid;
+  font-size: large;
+  margin: auto;
+  margin-bottom: 100px;
+}
+
+.submit-button:hover,
+.form-add-btn:hover {
+  background-color: #024f38;
+}
+
+.ul-ingredients,
+.ul-instructions {
+  list-style: square;
+}
+
+.footer-top,
+.footer-bottom {
+  display: flex;
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-icons {
+  font-size: x-large;
+  padding: 5px;
+}
+
+.footer-right {
+  margin-left: 1000px;
+}
+
+.footer-bottom,
+.footer-ul {
+  display: flex;
+  align-items: center;
+}
+
+.footer-ul {
+  list-style: none;
+  margin-right: 540px;
+}
+
+.footer-list {
+  margin-right: 30px;
+  border-left: 1px solid;
+  padding-left: 25px;
+}
+
+.footer-terms {
+  padding-right: 25px;
+  margin-left: 75px;
+}
+
+.footer-list:hover,
+.footer-terms:hover {
+  color: #024f38;
+}
+
+.bottom-logo {
+  font-style: italic;
+  color: #619e44;
+}
+
+.footer-wrapper {
+  padding-bottom: 60px;
+  background-color: rgb(244, 244, 244);
 }
