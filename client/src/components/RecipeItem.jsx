@@ -1,21 +1,23 @@
 import { FaRegStar, FaStar } from 'react-icons/fa';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaRegHeart } from 'react-icons/fa';
 import { FaRegComment } from 'react-icons/fa';
 import { HiOutlineSave } from 'react-icons/hi';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function RecipeItem({ recipe }) {
   const {
     recipeId,
     title,
     subtitle,
-    type,
+    // type,
     imageUrl,
     description,
-    ingredients,
-    instructions,
-    notes,
-    userId,
+    // ingredients,
+    // instructions,
+    // serves,
+    // facts,
+    // notes,
+    // userId,
   } = recipe;
   return (
     <li className="list">

@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import errorMiddleware from './lib/error-middleware.js';
 import pg from 'pg';
+// import uploadsMiddleware from './lib/uploads-middleware.js';
 
 // eslint-disable-next-line no-unused-vars -- Remove when used
 const db = new pg.Pool({
@@ -12,6 +13,8 @@ const db = new pg.Pool({
 });
 
 const app = express();
+app.use(express.static('public'));
+app.use(express.json());
 
 // Create paths for static directories
 const reactStaticDir = new URL('../client/build', import.meta.url).pathname;
@@ -62,44 +65,51 @@ app.get('/api/recipes/:recipeId', async (req, res, next) => {
 });
 
 app.post('/api/recipes', async (req, res) => {
-  // http -v post localhost:8080/api/recipes title='testDish1' type='salad' imageUrl='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' notes='Buon appetite!' userId='2'
+  // http -v post localhost:8080/api/recipes title='testDish1' subtitle='abc' type='salad' imageUrl='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' serves='4' facts='def' notes='Buon appetite!' userId='2'
   try {
     const {
       title,
+      subtitle,
       type,
       imageUrl,
       description,
       ingredients,
       instructions,
+      serves,
+      facts,
       notes,
       userId,
     } = req.body;
     if (
       !title ||
+      !subtitle ||
       !type ||
       !imageUrl ||
       !description ||
       !ingredients ||
       !instructions ||
-      !notes ||
+      !facts ||
       !userId
     ) {
       res.status(400).json({ error: 'all fields are required!' });
       return;
     }
     const sql = `
-    insert into "recipes" ("title", "type", "imageUrl", "description", "ingredients", "instructions", "notes", "userId")
-           values ($1, $2, $3, $4, $5, $6, $7, $8)
+    insert into "recipes" ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+           values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11 )
            returning *
     `;
-
+    // const url = `/images/${req.file.filename}`;
     const params = [
       title,
+      subtitle,
       type,
       imageUrl,
       description,
       ingredients,
       instructions,
+      serves,
+      facts,
       notes,
       userId,
     ];
@@ -183,6 +193,7 @@ app.patch('/api/recipes/:recipeId', async (req, res) => {
 });
 
 app.delete('/api/recipes/:recipeId', async (req, res, next) => {
+  // http -v delete localhost:8080/api/recipes/6
   try {
     const recipeId = Number(req.params.recipeId);
     if (!Number.isInteger(recipeId) || recipeId < 1) {

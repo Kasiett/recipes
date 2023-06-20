@@ -1,30 +1,30 @@
 export default function AddRecipe() {
-  //handleSubmit function
-  //   async function handleSubmit(event) {
-  //   event.preventDefault();
-  //   try {
-  //     const formData = new FormData(event.target);
-  //     console.log('formData -> ', formData)
-  //     const res = await fetch('/api/uploads', {
-  //       method: 'POST',
-  //       body: formData,
-  //     });
-  //     if (!res.ok) {
-  //       throw new Error(`Error ${res.status}`);
-  //     }
-  //     const data = await res.json();
+  // handleSubmit function
+  async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+      const formData = new FormData(event.target);
+      console.log('formData -> ', formData);
+      const res = await fetch('/api/recipes', {
+        method: 'POST',
+        body: formData,
+      });
+      if (!res.ok) {
+        throw new Error(`Error ${res.status}`);
+      }
+      const data = await res.json();
 
-  //     console.log('data::', data);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // }
-  // on form => onSubmit={handleSubmit}
+      console.log('data::', data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   return (
     <>
       <h2 className="center-title"> Add a recipe:</h2>
       <div className="form-wrapper">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="col-left">
             <label>
               <input
@@ -66,7 +66,7 @@ export default function AddRecipe() {
               <input
                 required
                 className="form-instructions"
-                placeholder="instructions"
+                placeholder="directions"
                 type="text"
               />
               <button className="form-add-btn">Add</button>
@@ -125,12 +125,12 @@ export default function AddRecipe() {
                 <li>3 banana</li>
               </ul>
             </div>
+            <button className="submit-button" type="submit">
+              Submit
+            </button>
           </div>
         </form>
       </div>
-      <button className="submit-button" type="submit">
-        Submit
-      </button>
     </>
   );
 }
