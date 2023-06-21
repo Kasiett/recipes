@@ -4,11 +4,16 @@ export default function AddRecipe() {
     event.preventDefault();
     try {
       const formData = new FormData(event.target);
-      console.log('formData -> ', formData);
+      const formDataProperties = Object.fromEntries(formData.entries());
+      console.log('formDataProperties', formDataProperties);
       const res = await fetch('/api/recipes', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ formDataProperties }),
       });
+      console.log(res);
       if (!res.ok) {
         throw new Error(`Error ${res.status}`);
       }
@@ -28,6 +33,7 @@ export default function AddRecipe() {
           <div className="col-left">
             <label>
               <input
+                name="title"
                 className="input-one"
                 placeholder="title"
                 type="text"
@@ -37,6 +43,7 @@ export default function AddRecipe() {
 
             <label>
               <input
+                name="subtitle"
                 required
                 className="input-one"
                 placeholder="subtitle"
@@ -44,7 +51,11 @@ export default function AddRecipe() {
               />
             </label>
 
-            <select required className="input-select" id="recipe-type">
+            <select
+              name="type"
+              required
+              className="input-select"
+              id="recipe-type">
               <option value="type">Select type</option>
               <option value="salad">Salads</option>
               <option value="entree">Entrees</option>
@@ -54,6 +65,7 @@ export default function AddRecipe() {
 
             <label>
               <input
+                name="ingredients"
                 required
                 className="form-ingredients"
                 placeholder="ingredients"
@@ -64,6 +76,7 @@ export default function AddRecipe() {
 
             <label>
               <input
+                name="instructions"
                 required
                 className="form-instructions"
                 placeholder="directions"
@@ -74,6 +87,7 @@ export default function AddRecipe() {
 
             <label>
               <textarea
+                name="description"
                 required
                 placeholder="Type recipe description..."
                 id="description"
@@ -82,7 +96,7 @@ export default function AddRecipe() {
                 className="form-description"></textarea>
             </label>
 
-            <label htmlFor="upload-file" className="form-upload">
+            <label htmlFor="recipe-photo" className="form-upload">
               Upload a recipe photo:
               <div className="input-upload-wrapper">
                 <input
@@ -90,25 +104,36 @@ export default function AddRecipe() {
                   className="input-upload"
                   type="file"
                   id="recipe-photo"
-                  name="upload-file"
+                  name="imageUrl"
                   accept="image/png, image/jpeg"></input>
               </div>
             </label>
           </div>
           <div className="col-right">
             <label className="input-notes">
-              <input className="input-one" placeholder="notes" type="text" />
+              <input
+                name="notes"
+                className="input-one"
+                placeholder="notes"
+                type="text"
+              />
             </label>
 
             <label>
               <input
+                name="serves"
                 className="input-one"
-                placeholder="servings"
+                placeholder="serves"
                 type="number"
               />
             </label>
             <label className="input-notes">
-              <input className="input-one" placeholder="facts" type="text" />
+              <input
+                name="facts"
+                className="input-one"
+                placeholder="facts"
+                type="text"
+              />
             </label>
 
             <div className="ul-wrapper">
