@@ -1,17 +1,32 @@
+import { useState } from 'react';
+
 export default function AddRecipe() {
+  const [ingredientsValue, setIngredientsValue] = useState('');
+  const [instructionsValue, setInstructionsValue] = useState('');
+  const [ingredients, setIngredients] = useState([]);
+  const [instructions, setInstructions] = useState([]);
+
   // handleSubmit function
   async function handleSubmit(event) {
     event.preventDefault();
     try {
       const formData = new FormData(event.target);
       const formDataProperties = Object.fromEntries(formData.entries());
-      console.log('formDataProperties', formDataProperties);
+      const payload = {
+        formDataProperties: {
+          ...formDataProperties,
+          ingredients,
+          instructions,
+        },
+      };
+
+      console.log('payload:: ', payload);
       const res = await fetch('/api/recipes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ formDataProperties }),
+        body: JSON.stringify(payload),
       });
       console.log(res);
       if (!res.ok) {
@@ -23,6 +38,21 @@ export default function AddRecipe() {
     } catch (err) {
       console.error(err);
     }
+  }
+
+  console.log('ingredients -> ', ingredients);
+  console.log('instructions -> ', instructions);
+
+  function handleIngredients(event) {
+    event.preventDefault();
+    ingredientsValue.length > 0 &&
+      setIngredients((prev) => [...prev, ingredientsValue]);
+    setIngredientsValue('');
+  }
+  function handleInstructions(event) {
+    event.preventDefault();
+    setInstructions((prev) => [...prev, instructionsValue]);
+    setInstructionsValue('');
   }
 
   return (
@@ -66,23 +96,29 @@ export default function AddRecipe() {
             <label>
               <input
                 name="ingredients"
-                required
+                value={ingredientsValue}
+                onChange={(e) => setIngredientsValue(e.target.value)}
                 className="form-ingredients"
                 placeholder="ingredients"
                 type="text"
               />
-              <button className="form-add-btn">Add</button>
+              <button className="form-add-btn" onClick={handleIngredients}>
+                Add
+              </button>
             </label>
 
             <label>
               <input
                 name="instructions"
-                required
+                value={instructionsValue}
+                onChange={(e) => setInstructionsValue(e.target.value)}
                 className="form-instructions"
-                placeholder="directions"
+                placeholder="instructions"
                 type="text"
               />
-              <button className="form-add-btn">Add</button>
+              <button onClick={handleInstructions} className="form-add-btn">
+                Add
+              </button>
             </label>
 
             <label>
@@ -137,18 +173,22 @@ export default function AddRecipe() {
             </label>
 
             <div className="ul-wrapper">
-              <ul className="ul-instructions">
-                <h3>Directions: </h3>
-                <li>1 banana</li>
-                <li>2 banana</li>
-                <li>3 banana</li>
-              </ul>
-              <ul className="ul-ingredients">
-                <h3>Ingredients: </h3>
-                <li>1 banana</li>
-                <li>2 banana</li>
-                <li>3 banana</li>
-              </ul>
+              {ingredients.length > 0 && (
+                <ul className="ul-ingredients">
+                  <h3>Ingredients: </h3>
+                  {ingredients.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {instructions.length > 0 && (
+                <ul className="ul-instructions">
+                  <h3>Instructions: </h3>
+                  {instructions.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              )}
             </div>
             <button className="submit-button" type="submit">
               Submit

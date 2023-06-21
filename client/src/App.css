@@ -383,7 +383,8 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 80px;
+  margin-top: 80px;
+  margin-bottom: 40px;
 }
 
 .log-in-header {

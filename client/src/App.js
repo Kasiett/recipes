@@ -22,7 +22,7 @@ function App() {
           <Route path="/:recipeId" element={<RecipePage />} />
           <Route path="/add-recipe" element={<AddRecipe />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/log-in" element={<LogIn />} />
+          <Route path="/sign-in" element={<LogIn />} />
           <Route path="/sign-up" element={<SignUp />} />
 
           <Route path="*" element={<NotFound />} />
