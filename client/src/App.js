@@ -8,6 +8,8 @@ import AddRecipe from './pages/AddRecipe';
 import AboutUs from './pages/AboutUs';
 import Footer from './components/Footer';
 import { useState } from 'react';
+import LogIn from './pages/LogIn';
+import SignUp from './pages/SignUp';
 
 function App() {
   const [type, setType] = useState('');
@@ -20,6 +22,9 @@ function App() {
           <Route path="/:recipeId" element={<RecipePage />} />
           <Route path="/add-recipe" element={<AddRecipe />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/log-in" element={<LogIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

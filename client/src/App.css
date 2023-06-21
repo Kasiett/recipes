@@ -376,3 +376,104 @@ label {
   padding-bottom: 60px;
   background-color: rgb(244, 244, 244);
 }
+
+/* log in styling  */
+
+.log-in-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 80px;
+}
+
+.log-in-header {
+  width: 500px;
+  height: 100vh;
+  border: 0.9px solid;
+  margin: auto;
+}
+
+.log-in-logo {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0ede4;
+  font-style: italic;
+  font-size: x-large;
+  color: white;
+  font-weight: lighter;
+}
+
+.log-in-join-now {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 75px;
+}
+
+.log-in-join-now p {
+  margin: 0;
+}
+
+.log-in-email,
+.log-in-password {
+  border: 0.7px solid;
+  width: 300px;
+  padding: 10px 20px;
+  background-color: rgb(240, 240, 240);
+  margin: 30px;
+}
+
+.log-in-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.forgot-password,
+.p-join-now {
+  margin-top: 10px;
+  border-bottom: 0.7px solid;
+  color: blue;
+}
+
+.p-join-now {
+  margin-left: 10px;
+}
+
+.forgot-password:hover,
+.p-join-now:hover {
+  color: rgb(0, 0, 152);
+}
+
+.log-in-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.log-in-btn button {
+  padding: 10px 40px;
+  background-color: #006546;
+  color: white;
+  font-size: larger;
+  font-style: italic;
+  font-weight: 30;
+  border: transparent;
+}
+
+.log-in-btn button:hover {
+  background-color: #004b35;
+}
+
+.log-in-icon {
+  font-size: xx-large;
+  font-weight: lighter;
+}
+
+.join-now {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -15,9 +15,9 @@ export default function Header({ setType }) {
             <BiSearchAlt className="li-nav-bar icon-search" />
             <FaUserCircle className="li-nav-bar icon-user" />
             <li className="li-nav-bar">
-              <a className="log-in" href="#">
+              <Link to="/log-in" onClick={() => setType('')}>
                 Log in
-              </a>
+              </Link>
             </li>
             <li className="li-nav-bar border-left">
               <a href="#">Popular</a>
