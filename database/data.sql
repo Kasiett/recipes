@@ -78,6 +78,27 @@ ARRAY['6 cups tightly packed chopped romaine lettuce', '1 cup chopped cucumber',
     'Enjoy your homemade Strawberry banana salad buon appetito!',
 '1');
 
+INSERT INTO "recipes"
+  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+VALUES
+  ('LEMON HONEY GINGER WATER', 'Gluten-free', 'drinks', '/images/lemon-honey-ginger-water.png', 'This Lemon Ginger Honey Water is refreshing and hydrating. It’s the perfect drink to begin your day with (try it 30 minutes or more before or after celery juice), for an afternoon pick me up, or to sip on over the day. When you drink this healing tonic when you first wake up, it will help your liver flush out toxins it’s collected for release throughout the night while giving your liver and body the critical hydration and glucose it needs to begin your day.',
+ARRAY['1 to 2 inches fresh ginger', '2 cups water', '1/2 lemon', '2 teaspoons raw honey'],
+   ARRAY['Grate the ginger into 2 cups of water. Allow the water to steep for at least 15 minutes and ideally longer. You can even leave it steeping in the fridge overnight if you wish. Strain the ginger out of the water when you’re ready to drink it, add the lemon juice and raw honey.'],
+   '2', 'Lemons and limes contain micro mineral salts that break down pathogens such as unproductive bacteria, mold, yeast, and fungus to help protect your liver’s immune system. The rich calcium levels in lemons and limes binds to the vitamin C within them, and both of these enter into the liver, where they waken a stagnant, sluggish, fatty liver, helping loosen and disperse fat cells. Ginger is known to greatly aid in digestion and assimilation and is widely regarded to help prevent colds, flu, motion sickness, and vertigo. Ginger can also help to alleviate menstrual cramps, nausea, heartburn, migraines, sore throats, exhaustion, fatigue, and constipation and it is great in providing relief from the stomach flu and food poisoning. Raw honey contains a combination of sugar that the liver needs desperately and vitamins, minerals, and other nutrients—hundreds of which are not on the record with medical research and science. Raw honey is antimicrobial: antiviral, antibacterial, antifungal, all packaged into one. When it heads to the liver in its broken down, assimilated state, it packs a punch, giving the liver everything it needs at once: the liver’s immune system strengthens instantly.',
+    'Enjoy your homemade Strawberry banana salad buon appetito!',
+'1');
+
+INSERT INTO "recipes"
+  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+VALUES
+  ('MELON WITH SPIRULINA DIPPING SAUCE', 'Gluten-free', 'salads', '/images/melon-with-spirulina.png', 'Melon and spirulina might seem like a surprising combination, but they are a match made in heaven for the health benefits they offer. An amazing blend of critical glucose, trace minerals, vitamins, and antioxidants, these special foods can deeply support you in the ways your body needs.',
+ARRAY['6 cups cubed watermelon and/or honeydew melon'],
+   ARRAY['1/2 tsp spirulina @vimergy', '2 tbsp raw honey', '1 tbsp coconut water', '1 tbsp freshly squeezed lemon juice'],
+   '2', 'You can simply cut open your favorite variety of melon and sprinkle spirulina on top for the quickest option, or you can enjoy your melon cut up with this tasty spirulina dipping sauce, which only takes a minute to make. Spirulina is one of my favorite immune system supports, alongside its powerful phytochemical and antioxidant content.',
+    'Enjoy your homemade Strawberry banana salad buon appetito!',
+'1');
+
+
 
 
  insert into "ratings" ("recipeId", "userId", "rating")

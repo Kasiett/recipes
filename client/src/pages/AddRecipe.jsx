@@ -36,13 +36,13 @@ export default function AddRecipe() {
         body: JSON.stringify(payload),
       });
       console.log(res);
-      navigate('/');
       if (!res.ok) {
         throw new Error(`Error ${res.status}`);
       }
       const data = await res.json();
 
       console.log('data::', data);
+      navigate('/');
     } catch (err) {
       console.error(err);
     }

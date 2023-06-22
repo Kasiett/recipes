@@ -1,10 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaRegStar, FaStar } from 'react-icons/fa';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import { FaRegComment } from 'react-icons/fa';
-import { HiOutlineSave } from 'react-icons/hi';
 import RecipeItem from './RecipeItem';
-import { useParams } from 'react-router-dom';
 
 export default function RecipesList({ type }) {
   const [recipes, setRecipes] = useState(null);
@@ -21,8 +16,6 @@ export default function RecipesList({ type }) {
 
     readRecipes();
   }, []);
-
-  const recipe = recipes && recipes[0];
 
   let filterRecipe = () => {
     if (type) {

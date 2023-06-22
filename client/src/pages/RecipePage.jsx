@@ -27,7 +27,7 @@ export default function RecipePage() {
     loadRecipe(recipeId);
   }, [recipeId]);
 
-  if (!recipe) {
+  if (!recipe || isLoading) {
     return 'Loading...';
   }
 
