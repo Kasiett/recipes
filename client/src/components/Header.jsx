@@ -1,8 +1,13 @@
 import { BiSearchAlt } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
 import { Outlet, Link } from 'react-router-dom';
+import { FaBolt, FaSignOutAlt } from 'react-icons/fa';
+import AppContext from '../components/AppContext';
+import React, { useContext } from 'react';
 
 export default function Header({ setType }) {
+  const { user, handleSignOut } = useContext(AppContext);
+
   return (
     <>
       <div className="header">
@@ -15,9 +20,12 @@ export default function Header({ setType }) {
             <BiSearchAlt className="li-nav-bar icon-search" />
             <FaUserCircle className="li-nav-bar icon-user" />
             <li className="li-nav-bar">
-              <Link to="/sign-in" onClick={() => setType('')}>
-                Sign in
-              </Link>
+              {!user && (
+                <>
+                  <Link to="/sign-in">Sign In</Link>
+                </>
+              )}
+              {user && <span onClick={handleSignOut}>Sign out</span>}
             </li>
             <li className="li-nav-bar border-left">
               <a href="#">Popular</a>

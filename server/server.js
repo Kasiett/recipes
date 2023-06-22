@@ -32,7 +32,7 @@ app.post('/api/auth/sign-up', async (req, res, next) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
-      throw new Error(400, 'username and password are required fields');
+      throw new Error(400, ' email and password are required fields');
     }
     const hashedPassword = await argon2.hash(password);
     const sql = `
@@ -46,8 +46,8 @@ app.post('/api/auth/sign-up', async (req, res, next) => {
     res.status(201).json(user);
     /* TODO:
      * Hash the user's password with `argon2.hash()`
-     * Insert the user's "username" and "hashedPassword" into the "users" table.
-     * Respond to the client with a 201 status code and the new user's "userId", "username", and "createdAt" timestamp.
+     * Insert the user's " email" and "hashedPassword" into the "users" table.
+     * Respond to the client with a 201 status code and the new user's "userId", " email", and "createdAt" timestamp.
      * Catch any errors.
      *
      * Hint: Insert statements can include a `returning` clause to retrieve the insterted row(s).
@@ -59,7 +59,7 @@ app.post('/api/auth/sign-up', async (req, res, next) => {
 
 app.post('/api/auth/sign-in', async (req, res, next) => {
   try {
-    console.log(req.body);
+    console.log('req.body :: ', req.body);
     const { email, password } = req.body;
     console.log(email);
     if (!email || !password) {
@@ -96,7 +96,7 @@ app.post('/api/auth/sign-in', async (req, res, next) => {
     res.status(200).json(payload);
     /* your code starts here */
 
-    /* Query the database to find the "userId" and "hashedPassword" for the "username".
+    /* Query the database to find the "userId" and "hashedPassword" for the " email".
      * If no user is found,
      *   throw a 401: 'invalid login' error.
      * If a user is found,
@@ -104,7 +104,7 @@ app.post('/api/auth/sign-in', async (req, res, next) => {
      *   If the password does not match,
      *     throw a 401: 'invalid login' error.
      *   If the password does match,
-     *     Create a payload object containing the user's "userId" and "username".
+     *     Create a payload object containing the user's "userId" and " email".
      *     Create a new signed token with `jwt.sign()`, using the payload and your TOKEN_SECRET
      *     Send the client a 200 response containing the payload and the token.
      */

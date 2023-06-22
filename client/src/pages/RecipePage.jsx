@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchRecipe } from '../api/api';
+import { fetchRecipe } from '../lib';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { FaRegComment } from 'react-icons/fa';
@@ -87,7 +87,7 @@ export default function RecipePage() {
           </div>
         )}
         <ul className="recipe-page-ul">
-          <h3>Directions</h3>
+          <h3>Instructions</h3>
           {instructions.map((instruction, index) => {
             return (
               <li key={instruction + index} className="instructions">
