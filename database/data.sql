@@ -48,7 +48,35 @@ ARRAY['2 frozen bananas', '1 1/2 tsp chaga powder @vimergy', '1 tsp cinnamon', '
     'Enjoy your homemade Strawberry banana salad buon appetito!',
 '1');
 
+INSERT INTO "recipes"
+  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+VALUES
+  ('COBB SALAD', 'Gluten-free, dairy-free & low-fat', 'salad', '/images/cobb-salad.png', 'This Cobb Salad brings together crunchy romaine, refreshing cucumber, juicy cherry tomatoes, crispy eggplant-bacon bites, sprouts or microgreens, and optional chickpeas. You can choose from two dressings: a creamy ranch dressing made with cashews or a fat-free honey-mustard dressing for a light and bright option. You can omit the chickpeas to keep this recipe raw or add them for a heartier option.',
+ARRAY['6 cups tightly packed chopped romaine lettuce', '1 cup chopped cucumber', '1 cup cooked chickpeas (optional)', '1 cup chopped cherry tomatoes 4 to 5 slices of eggplant bacon, chopped into bites (recipe on page 430)', '1⁄2 cup sprouts or microgreens'],
+   ARRAY['Combine the romaine, cucumber, chickpeas (if using), cherry tomatoes, eggplant-bacon bites, and sprouts or microgreens in a large bowl. Stir until evenly mixed.', 'To make the ranch dressing, combine the zucchini, cashews, lemon juice, garlic powder, onion powder, and sea salt (if using) in a blender and blend until smooth. Stir in the dill and parsley.', 'To make the honey-mustard dressing, whisk the ingredients together in a bowl until smooth. Divide the salad between the bowls and top with dressing. Serve immediately.'],
+   '2', '',
+    'Enjoy your homemade Strawberry banana salad buon appetito!',
+'1');
 
+INSERT INTO "recipes"
+  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+VALUES
+  ('BARLEY GRASS JUICE LEMONADE', 'Gluten-free', 'drinks', '/images/barley-grass-juice-lemonade.png', 'This deeply refreshing and hydrating lemonade is enriched with barley grass juice powder, bringing extra antioxidant and nutrient support to this delicious drink. Barley grass juice powder comes from the tender green shoots of barley grass, which are then juiced, which is the only way I recommend consuming it, versus having just barley grass powder that isn’t juiced. Barley grass juice powder is also naturally gluten-free. This is a fantastic lemonade to share or to make for yourself to sip on over the day.',
+ARRAY['2-3 tsp barley grass juice powder @vimergy', '½ cup freshly squeezed lemon juice', '½ cup pure maple syrup or raw honey', '4 cups cold water', '3-4 cups ice, to serve'],
+   ARRAY['Combine the barley grass juice powder, lemon juice, maple syrup, and cold water in a pitcher. Whisk or stir until evenly mixed. Top with ice and serve.'],
+   '4', '',
+    'Enjoy your homemade Strawberry banana salad buon appetito!',
+'1');
+
+INSERT INTO "recipes"
+  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+VALUES
+  ('MELON SMOOTHIE', 'Gluten-free', 'smoothies', '/images/melon-smoothie.png', 'This Cobb Salad brings together crunchy romaine, refreshing cucumber, juicy cherry tomatoes, crispy eggplant-bacon bites, sprouts or microgreens, and optional chickpeas. You can choose from two dressings: a creamy ranch dressing made with cashews or a fat-free honey-mustard dressing for a light and bright option. You can omit the chickpeas to keep this recipe raw or add them for a heartier option.',
+ARRAY['6 cups tightly packed chopped romaine lettuce', '1 cup chopped cucumber', '1 cup cooked chickpeas (optional)', '1 cup chopped cherry tomatoes 4 to 5 slices of eggplant bacon, chopped into bites (recipe on page 430)', '1⁄2 cup sprouts or microgreens'],
+   ARRAY['Combine the romaine, cucumber, chickpeas (if using), cherry tomatoes, eggplant-bacon bites, and sprouts or microgreens in a large bowl. Stir until evenly mixed.', 'To make the ranch dressing, combine the zucchini, cashews, lemon juice, garlic powder, onion powder, and sea salt (if using) in a blender and blend until smooth. Stir in the dill and parsley.', 'To make the honey-mustard dressing, whisk the ingredients together in a bowl until smooth. Divide the salad between the bowls and top with dressing. Serve immediately.'],
+   '2', '',
+    'Enjoy your homemade Strawberry banana salad buon appetito!',
+'1');
 
 
 

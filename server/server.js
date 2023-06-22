@@ -189,16 +189,17 @@ app.post(
         return;
       }
       const sql = `
-    insert into "recipes" ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+    insert into "recipes" ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves", "facts", "notes", "userId")
            values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11 )
            returning *
     `;
-      const url = `/images/${req.file.filename}`;
+      // const imageUrl = `/images/${req.file.filename}`;
+      // console.log('req.file', req.file);
       const params = [
         title,
         subtitle,
         type,
-        url,
+        imageUrl,
         description,
         ingredients,
         instructions,

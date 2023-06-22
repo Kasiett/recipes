@@ -1,17 +1,23 @@
 import { useState, useContext } from 'react';
 import AppContext from '../components/AppContext';
+import { useNavigate } from 'react-router-dom';
+
 export default function AddRecipe() {
+  const navigate = useNavigate();
   const [ingredientsValue, setIngredientsValue] = useState('');
   const [instructionsValue, setInstructionsValue] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [instructions, setInstructions] = useState([]);
   const { user } = useContext(AppContext);
+
   // handleSubmit function
   async function handleSubmit(event) {
     event.preventDefault();
     try {
       const formData = new FormData(event.target);
       const formDataProperties = Object.fromEntries(formData.entries());
+      console.log('formData', formData);
+      console.log('formDataProp', formDataProperties);
       const payload = {
         formDataProperties: {
           ...formDataProperties,
@@ -30,6 +36,7 @@ export default function AddRecipe() {
         body: JSON.stringify(payload),
       });
       console.log(res);
+      navigate('/');
       if (!res.ok) {
         throw new Error(`Error ${res.status}`);
       }

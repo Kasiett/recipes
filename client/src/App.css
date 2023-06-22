@@ -150,9 +150,10 @@ a {
   cursor: pointer;
 }
 
-.resipes-list {
+.recipes-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .sub-description {

@@ -33,7 +33,7 @@ export default function RecipesList({ type }) {
 
   return (
     <>
-      <ul className="resipes-list ">
+      <ul className="recipes-list ">
         {filterRecipe()?.map((recipe) => (
           <RecipeItem key={recipe?.recipeId} recipe={recipe} />
         ))}
