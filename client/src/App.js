@@ -21,11 +21,11 @@ function App() {
   const [isAuthorizing, setIsAuthorizing] = useState(true);
 
   useEffect(() => {
-    // If user logged in previously on this browser, authorize them
     const auth = localStorage.getItem(tokenKey);
     if (auth) {
-      setUser(auth.user);
-      setToken(auth.token);
+      const { user, token } = JSON.parse(auth);
+      setUser(user);
+      setToken(token);
     }
     setIsAuthorizing(false);
   }, []);
@@ -33,8 +33,7 @@ function App() {
   if (isAuthorizing) return null;
 
   function handleSignIn(auth) {
-    console.log('auth:: ', JSON.stringify(auth));
-    localStorage.setItem(tokenKey, auth);
+    localStorage.setItem(tokenKey, JSON.stringify(auth));
     setUser(auth.user);
     setToken(auth.token);
   }

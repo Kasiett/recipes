@@ -3,7 +3,7 @@ import express from 'express';
 import errorMiddleware from './lib/error-middleware.js';
 import pg from 'pg';
 import jwt from 'jsonwebtoken';
-// import uploadsMiddleware from './lib/uploads-middleware.js';
+import uploadsMiddleware from './lib/uploads-middleware.js';
 import argon2 from 'argon2';
 // import { ClientError} from './lib/index.js';
 
@@ -154,7 +154,7 @@ app.get('/api/recipes/:recipeId', async (req, res, next) => {
 
 app.post(
   '/api/recipes',
-  // uploadsMiddleware.single('image'),
+  uploadsMiddleware.single('image'),
   async (req, res) => {
     // http -v post localhost:8080/api/recipes title='testDish1' subtitle='abc' type='salad' imageUrl='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' serves='4' facts='def' notes='Buon appetite!' userId='2'
     console.log('here');
@@ -174,19 +174,6 @@ app.post(
         userId,
       } = req.body.formDataProperties;
 
-      console.log(
-        title,
-        subtitle,
-        type,
-        imageUrl,
-        description,
-        ingredients,
-        instructions,
-        serves,
-        facts,
-        notes,
-        userId
-      );
       if (
         !title ||
         !subtitle ||

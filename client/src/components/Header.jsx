@@ -1,13 +1,12 @@
 import { BiSearchAlt } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
 import { Outlet, Link } from 'react-router-dom';
-import { FaBolt, FaSignOutAlt } from 'react-icons/fa';
 import AppContext from '../components/AppContext';
 import React, { useContext } from 'react';
 
 export default function Header({ setType }) {
   const { user, handleSignOut } = useContext(AppContext);
-
+  console.log('user -> ', JSON.stringify(user));
   return (
     <>
       <div className="header">
@@ -25,7 +24,11 @@ export default function Header({ setType }) {
                   <Link to="/sign-in">Sign In</Link>
                 </>
               )}
-              {user && <span onClick={handleSignOut}>Sign out</span>}
+              {user && (
+                <Link to="/sign-in" onClick={handleSignOut}>
+                  Sign out
+                </Link>
+              )}
             </li>
             <li className="li-nav-bar border-left">
               <a href="#">Popular</a>
@@ -33,6 +36,13 @@ export default function Header({ setType }) {
             <li className="li-nav-bar border-left">
               <Link to="/add-recipe">Add Recipe</Link>
             </li>
+            {user && (
+              <li className="li-nav-bar border-left">
+                <small>
+                  <em>{user.email}</em>
+                </small>
+              </li>
+            )}
           </ul>
         </nav>
         <ul className="sortby">

@@ -57,12 +57,9 @@ export default function AuthForm({ action, onSignIn }) {
           </label>
           {error && <div style={{ color: 'red' }}>Error: {error.message}</div>}
           <div className="log-in-btn">
-            {/* <small>
-              <Link className="text-muted" to={alternateActionTo}>
-                {alternateActionText}
-              </Link>
-            </small> */}
-            <button type="submit">{submitButtonText}</button>
+            <button type="submit" className="pointer">
+              {submitButtonText}
+            </button>
           </div>
         </form>
       </div>

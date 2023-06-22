@@ -146,6 +146,10 @@ a {
   cursor: pointer;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .resipes-list {
   display: flex;
   flex-wrap: wrap;

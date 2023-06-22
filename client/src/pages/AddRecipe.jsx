@@ -1,11 +1,11 @@
-import { useState } from 'react';
-
+import { useState, useContext } from 'react';
+import AppContext from '../components/AppContext';
 export default function AddRecipe() {
   const [ingredientsValue, setIngredientsValue] = useState('');
   const [instructionsValue, setInstructionsValue] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [instructions, setInstructions] = useState([]);
-
+  const { user } = useContext(AppContext);
   // handleSubmit function
   async function handleSubmit(event) {
     event.preventDefault();
@@ -17,6 +17,7 @@ export default function AddRecipe() {
           ...formDataProperties,
           ingredients,
           instructions,
+          userId: user.userId,
         },
       };
 
