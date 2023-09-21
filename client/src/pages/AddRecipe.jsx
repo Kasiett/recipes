@@ -9,47 +9,39 @@ export default function AddRecipe() {
   const [ingredients, setIngredients] = useState([]);
   const [instructions, setInstructions] = useState([]);
   const { user } = useContext(AppContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   // handleSubmit function
   async function handleSubmit(event) {
     event.preventDefault();
     try {
+      setIsLoading(true);
       const formData = new FormData(event.target);
-      const formDataProperties = Object.fromEntries(formData.entries());
-      console.log('formData', formData);
-      console.log('formDataProp', formDataProperties);
-      const payload = {
-        formDataProperties: {
-          ...formDataProperties,
-          ingredients,
-          instructions,
-          userId: user.userId,
-        },
-      };
 
-      console.log('payload:: ', payload);
+      formData.append('ingredients', JSON.stringify(ingredients));
+      formData.append('instructions', JSON.stringify(instructions));
+      formData.append('userId', user.userId);
+
+      console.log('formData:: ', formData);
+
       const res = await fetch('/api/recipes', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
+        body: formData,
       });
-      console.log(res);
+
       if (!res.ok) {
         throw new Error(`Error ${res.status}`);
       }
-      const data = await res.json();
 
+      const data = await res.json();
       console.log('data::', data);
       navigate('/');
     } catch (err) {
       console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   }
-
-  console.log('ingredients -> ', ingredients);
-  console.log('instructions -> ', instructions);
 
   function handleIngredients(event) {
     event.preventDefault();
@@ -65,7 +57,14 @@ export default function AddRecipe() {
 
   return (
     <>
-      <h2 className="center-title"> Add a recipe:</h2>
+      {isLoading ? (
+        <h2 className="center-title" style={{ color: 'coral' }}>
+          Please wait... Adding a recipe.
+        </h2>
+      ) : (
+        <h2 className="center-title">Add a recipe:</h2>
+      )}
+
       <div className="form-wrapper">
         <form onSubmit={handleSubmit}>
           <div className="col-left">
@@ -148,7 +147,7 @@ export default function AddRecipe() {
                   className="input-upload"
                   type="file"
                   id="recipe-photo"
-                  name="imageUrl"
+                  name="image"
                   accept="image/png, image/jpeg"></input>
               </div>
             </label>

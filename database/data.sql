@@ -16,7 +16,7 @@
 
 
 INSERT INTO "recipes"
-  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+  ("title", "subtitle", "type", "image", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
 VALUES
   ('STRAWBERRY BANANA SALAD', 'Gluten-free, dairy-free & low-fat', 'salads', '/images/strawberry-banana-salad.png', 'This fruit-focused salad is fresh, bright, and packed with flavor thanks to the herbs, fruit, and two different dressing options. Each dressing has its own unique taste and appeal, so try them both and pick your favorite, or alternate each time you make this pretty salad. This recipe comes from the Revised and Expanded Edition of Medical Medium.',
    ARRAY['4 cups chopped strawberries', '4-6 bananas, roughly chopped (about 4-6 cups)', '4 cups leafy greens (such as spinach and/or butter leaf lettuce)', '1/4 cup finely chopped basil or sage (optional)', '1/2 cup orange juice', '2 tsp raw honey'],
@@ -29,7 +29,7 @@ Strawberry Banana Salad', 'Enjoy your homemade Strawberry banana salad buon appe
 
 
 INSERT INTO "recipes"
-  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+  ("title", "subtitle", "type", "image", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
 VALUES
   ('TIKKA MASALA', 'Gluten-free, dairy-free & low-fat', 'entrees', '/images/tikka-masala.png', 'Tender vegetables are coated in fragrant, creamy tikka masala sauce rich in spices and flavor in this delicious curry recipe. Perfect for a family meal or to serve to friends, you can enjoy this tikka masala with cauliflower rice or pick your gluten-free grain of choice, such as millet, quinoa, or brown rice. Tikka Masala',
 ARRAY['1 cup diced onion', '5 cloves of garlic, finely chopped', '1 inch piece of ginger, finely chopped', '1-2 tsp finely chopped red chili/hot pepper', '1 tsp ground turmeric', '1 tsp ground coriander', '1/2 tsp ground cumin', '2 tsp garam masala', '1 14-oz can or 1 1/2 cups diced tomatoes','1 cup Healing Broth', '1 14-oz can or 1 1/2 cups chickpeas OR 1 1/2 vegetables of choice, such as cauliflower, broccoli, carrots, and/or bell pepper', '1 tbsp tomato paste', '1 1/4 cup coconut milk, divided', '3-4 fresh or dried curry leaves (optional)', 'Sea salt, to taste (optional)', '1/2 cup roughly chopped cilantro leaves, to serve', '4-6 cups cauliflower rice, brown rice, quinoa or millet, to serve'],
@@ -39,7 +39,7 @@ ARRAY['1 cup diced onion', '5 cloves of garlic, finely chopped', '1 inch piece o
 '1');
 
 INSERT INTO "recipes"
-  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+  ("title", "subtitle", "type", "image", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
 VALUES
   ('CHAGA CINNAMON SHAKE', 'Gluten-free, dairy-free & low-fat', 'smoothies', '/images/chaga-cinnamon-shake.png', 'Creamy and satisfying, this smoothie tastes so good. It is a great replacement for a dairy milkshake or when you are craving a cold, creamy treat. The chaga powder, ginger, and cinnamon offer additional healing benefits and bring warmth and even more flavor to this delicious shake. You can use water or coconut water for a fat free but still creamy shake or almond milk or coconut milk for a more decadent shake.',
 ARRAY['2 frozen bananas', '1 1/2 tsp chaga powder @vimergy', '1 tsp cinnamon', '1/2 tsp ground ginger (optional)', '2-3 tbsp maple syrup or raw honey (optional)', '1 cup water, coconut water, or unsweetened almond or coconut milk'],
@@ -49,7 +49,7 @@ ARRAY['2 frozen bananas', '1 1/2 tsp chaga powder @vimergy', '1 tsp cinnamon', '
 '1');
 
 INSERT INTO "recipes"
-  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+  ("title", "subtitle", "type", "image", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
 VALUES
   ('COBB SALAD', 'Gluten-free, dairy-free & low-fat', 'salad', '/images/cobb-salad.png', 'This Cobb Salad brings together crunchy romaine, refreshing cucumber, juicy cherry tomatoes, crispy eggplant-bacon bites, sprouts or microgreens, and optional chickpeas. You can choose from two dressings: a creamy ranch dressing made with cashews or a fat-free honey-mustard dressing for a light and bright option. You can omit the chickpeas to keep this recipe raw or add them for a heartier option.',
 ARRAY['6 cups tightly packed chopped romaine lettuce', '1 cup chopped cucumber', '1 cup cooked chickpeas (optional)', '1 cup chopped cherry tomatoes 4 to 5 slices of eggplant bacon, chopped into bites (recipe on page 430)', '1⁄2 cup sprouts or microgreens'],
@@ -59,7 +59,7 @@ ARRAY['6 cups tightly packed chopped romaine lettuce', '1 cup chopped cucumber',
 '1');
 
 INSERT INTO "recipes"
-  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+  ("title", "subtitle", "type", "image", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
 VALUES
   ('BARLEY GRASS JUICE LEMONADE', 'Gluten-free', 'drinks', '/images/barley-grass-juice-lemonade.png', 'This deeply refreshing and hydrating lemonade is enriched with barley grass juice powder, bringing extra antioxidant and nutrient support to this delicious drink. Barley grass juice powder comes from the tender green shoots of barley grass, which are then juiced, which is the only way I recommend consuming it, versus having just barley grass powder that isn’t juiced. Barley grass juice powder is also naturally gluten-free. This is a fantastic lemonade to share or to make for yourself to sip on over the day.',
 ARRAY['2-3 tsp barley grass juice powder @vimergy', '½ cup freshly squeezed lemon juice', '½ cup pure maple syrup or raw honey', '4 cups cold water', '3-4 cups ice, to serve'],
@@ -69,7 +69,7 @@ ARRAY['2-3 tsp barley grass juice powder @vimergy', '½ cup freshly squeezed lem
 '1');
 
 INSERT INTO "recipes"
-  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+  ("title", "subtitle", "type", "image", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
 VALUES
   ('MELON SMOOTHIE', 'Gluten-free', 'smoothies', '/images/melon-smoothie.png', 'This Cobb Salad brings together crunchy romaine, refreshing cucumber, juicy cherry tomatoes, crispy eggplant-bacon bites, sprouts or microgreens, and optional chickpeas. You can choose from two dressings: a creamy ranch dressing made with cashews or a fat-free honey-mustard dressing for a light and bright option. You can omit the chickpeas to keep this recipe raw or add them for a heartier option.',
 ARRAY['6 cups tightly packed chopped romaine lettuce', '1 cup chopped cucumber', '1 cup cooked chickpeas (optional)', '1 cup chopped cherry tomatoes 4 to 5 slices of eggplant bacon, chopped into bites (recipe on page 430)', '1⁄2 cup sprouts or microgreens'],
@@ -79,7 +79,7 @@ ARRAY['6 cups tightly packed chopped romaine lettuce', '1 cup chopped cucumber',
 '1');
 
 INSERT INTO "recipes"
-  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+  ("title", "subtitle", "type", "image", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
 VALUES
   ('LEMON HONEY GINGER WATER', 'Gluten-free', 'drinks', '/images/lemon-honey-ginger-water.png', 'This Lemon Ginger Honey Water is refreshing and hydrating. It’s the perfect drink to begin your day with (try it 30 minutes or more before or after celery juice), for an afternoon pick me up, or to sip on over the day. When you drink this healing tonic when you first wake up, it will help your liver flush out toxins it’s collected for release throughout the night while giving your liver and body the critical hydration and glucose it needs to begin your day.',
 ARRAY['1 to 2 inches fresh ginger', '2 cups water', '1/2 lemon', '2 teaspoons raw honey'],
@@ -89,7 +89,7 @@ ARRAY['1 to 2 inches fresh ginger', '2 cups water', '1/2 lemon', '2 teaspoons ra
 '1');
 
 INSERT INTO "recipes"
-  ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
+  ("title", "subtitle", "type", "image", "description", "ingredients", "instructions", "serves","facts", "notes", "userId")
 VALUES
   ('MELON WITH SPIRULINA DIPPING SAUCE', 'Gluten-free', 'salads', '/images/melon-with-spirulina.png', 'Melon and spirulina might seem like a surprising combination, but they are a match made in heaven for the health benefits they offer. An amazing blend of critical glucose, trace minerals, vitamins, and antioxidants, these special foods can deeply support you in the ways your body needs.',
 ARRAY['6 cups cubed watermelon and/or honeydew melon'],

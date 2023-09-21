@@ -23,7 +23,7 @@ CREATE TABLE "recipes" (
 	"title" TEXT NOT NULL,
   "subtitle" TEXT NOT NULL,
   "type" TEXT NOT NULL,
-	"imageUrl" TEXT NOT NULL,
+	"image" TEXT NOT NULL,
 	"description" TEXT NOT NULL,
   "ingredients" TEXT[]NOT NULL,
   "instructions" TEXT[] NOT NULL,

@@ -35,7 +35,7 @@ export default function RecipePage() {
     title,
     subtitle,
     type,
-    imageUrl,
+    image,
     description,
     ingredients,
     instructions,
@@ -44,11 +44,12 @@ export default function RecipePage() {
     serves,
     facts,
   } = recipe;
-
+  console.log('ingredients', ingredients);
+  console.log('instructions', instructions);
   return (
     <div className="recipe-page-wrapper">
       <div className="column-left">
-        <img className="recipe-page-img" src={imageUrl} alt="meal" />
+        <img className="recipe-page-img" src={image} alt="meal" />
 
         <div className="list-icons">
           <div className="rating">

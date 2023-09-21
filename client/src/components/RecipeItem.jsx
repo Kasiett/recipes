@@ -10,7 +10,7 @@ export default function RecipeItem({ recipe }) {
     title,
     subtitle,
     // type,
-    imageUrl,
+    image,
     description,
     // ingredients,
     // instructions,
@@ -29,7 +29,7 @@ export default function RecipeItem({ recipe }) {
       {/* <img className="list-img" src={strawberrySalad} alt="meal" /> */}
 
       <Link to={`/${recipeId}`}>
-        <img className="list-img" src={imageUrl} alt="meal" />
+        <img className="list-img" src={image} alt="meal" />
       </Link>
       <div className="list-icons">
         <div className="rating">

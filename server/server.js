@@ -156,15 +156,14 @@ app.post(
   '/api/recipes',
   uploadsMiddleware.single('image'),
   async (req, res) => {
-    // http -v post localhost:8080/api/recipes title='testDish1' subtitle='abc' type='salad' imageUrl='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' serves='4' facts='def' notes='Buon appetite!' userId='2'
-    console.log('here');
+    // http -v post localhost:8080/api/recipes title='testDish1' subtitle='abc' type='salad' image='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' serves='4' facts='def' notes='Buon appetite!' userId='2'
+    console.log('here:: ');
     console.log(req.body);
     try {
       const {
         title,
         subtitle,
         type,
-        imageUrl,
         description,
         ingredients,
         instructions,
@@ -172,13 +171,12 @@ app.post(
         facts,
         notes,
         userId,
-      } = req.body.formDataProperties;
+      } = req.body;
 
       if (
         !title ||
         !subtitle ||
         !type ||
-        !imageUrl ||
         !description ||
         !ingredients ||
         !instructions ||
@@ -189,20 +187,28 @@ app.post(
         return;
       }
       const sql = `
-    insert into "recipes" ("title", "subtitle", "type", "imageUrl", "description", "ingredients", "instructions", "serves", "facts", "notes", "userId")
+    insert into "recipes" ("title", "subtitle", "type", "image", "description", "ingredients", "instructions", "serves", "facts", "notes", "userId")
            values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11 )
            returning *
     `;
-      // const imageUrl = `/images/${req.file.filename}`;
-      // console.log('req.file', req.file);
+      const image = `/images/${req.file.filename}`;
+
+      const convertArray = (input) => {
+        const parsedArray = JSON.parse(input[1]);
+        return parsedArray;
+      };
+
+      const convertedIngredients = convertArray(ingredients);
+      const convertedInstructions = convertArray(instructions);
+
       const params = [
         title,
         subtitle,
         type,
-        imageUrl,
+        image,
         description,
-        ingredients,
-        instructions,
+        convertedIngredients,
+        convertedInstructions,
         serves,
         facts,
         notes,
@@ -219,7 +225,7 @@ app.post(
 );
 
 app.patch('/api/recipes/:recipeId', async (req, res) => {
-  // http -v patch localhost:8080/api/recipes/2 title='DishMish' type='salad' imageUrl='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' notes='Buon appetite!' userId='2'
+  // http -v patch localhost:8080/api/recipes/2 title='DishMish' type='salad' image='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' notes='Buon appetite!' userId='2'
 
   try {
     const recipeId = Number(req.params.recipeId);
@@ -230,7 +236,7 @@ app.patch('/api/recipes/:recipeId', async (req, res) => {
     const {
       title,
       type,
-      imageUrl,
+      image,
       description,
       ingredients,
       instructions,
@@ -239,7 +245,7 @@ app.patch('/api/recipes/:recipeId', async (req, res) => {
     if (
       !title ||
       !type ||
-      !imageUrl ||
+      !image ||
       !description ||
       !ingredients ||
       !instructions ||
@@ -254,7 +260,7 @@ app.patch('/api/recipes/:recipeId', async (req, res) => {
   UPDATE "recipes"
   SET "title" = $1,
       "type" = $2,
-      "imageUrl" = $3,
+      "image" = $3,
       "description" = $4,
       "ingredients" = $5,
       "instructions" = $6,
@@ -266,7 +272,7 @@ app.patch('/api/recipes/:recipeId', async (req, res) => {
     const params = [
       title,
       type,
-      imageUrl,
+      image,
       description,
       ingredients,
       instructions,
