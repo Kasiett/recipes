@@ -152,11 +152,11 @@ app.get('/api/recipes/:recipeId', async (req, res, next) => {
   }
 });
 
+// http -v post localhost:8080/api/recipes title='testDish1' subtitle='abc' type='salad' image='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' serves='4' facts='def' notes='Buon appetite!' userId='2'
 app.post(
   '/api/recipes',
   uploadsMiddleware.single('image'),
   async (req, res) => {
-    // http -v post localhost:8080/api/recipes title='testDish1' subtitle='abc' type='salad' image='ing url' description='Fresh fruit focused salad' ingredients:='["1 banana", "2 banana", "3 banana"]' instructions:='["1 banana", "2 banana", "3 banana"]' serves='4' facts='def' notes='Buon appetite!' userId='2'
     console.log('here:: ');
     console.log(req.body);
     try {
